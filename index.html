@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="RentReady multi-tenant event equipment rental management" />
+    <title>RentReady — Rental management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">R</span><span>RentReady</span>
+      </div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-view="equipment"><span>▦</span> Equipment</button>
+        <button class="nav-item" data-view="bookings"><span>▣</span> Bookings</button>
+        <button class="nav-item" data-view="calendar"><span>□</span> Calendar</button>
+        <button class="nav-item" data-view="customers"><span>♙</span> Customers</button>
+        <button class="nav-item" data-view="settings"><span>⚙</span> Settings</button>
+      </nav>
+      <div class="sidebar-foot">
+        <p>Local workspace</p>
+        <small>Stored in this browser.</small>
+        <button class="btn btn-ghost full" id="reset-data">Clear local data</button>
+        <button class="btn btn-ghost full" id="sign-out" hidden>Sign out</button>
+      </div>
+    </aside>
+
+    <div class="app-shell">
+      <header class="topbar">
+        <button
+          class="icon-btn menu-btn"
+          id="menu-toggle"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <div>
+          <p class="eyebrow">Rental operations</p>
+          <h1 id="page-title">Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <label class="sr-only" for="workspace-switcher">Current business</label>
+          <select id="workspace-switcher" class="workspace-switcher" hidden></select>
+          <span class="today" id="today-label"></span>
+          <button class="btn btn-primary" data-action="new-booking">+ New booking</button>
+        </div>
+      </header>
+      <main id="main-content" tabindex="-1"></main>
+    </div>
+    <div class="scrim" id="scrim"></div>
+    <div id="toast-region" class="toast-region" aria-live="polite"></div>
+
+    <dialog id="app-dialog" class="app-dialog" aria-labelledby="dialog-title">
+      <div id="dialog-content"></div>
+    </dialog>
+    <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow">Please confirm</p>
+          <h2 id="confirm-title">Are you sure?</h2>
+        </div>
+      </div>
+      <p id="confirm-message"></p>
+      <div class="dialog-actions">
+        <button class="btn btn-secondary" value="cancel">Cancel</button
+        ><button class="btn btn-danger" value="confirm">Confirm</button>
+      </div>
+    </dialog>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
